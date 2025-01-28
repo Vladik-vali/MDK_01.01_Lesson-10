@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    public interface ISelectable
+    {
+        void OnSelect();
+    }
+
+    // Интерфейс для "обновляемых" объектов
+    public interface IUpdatable
+    {
+        void Refresh();
+    }
+
+    // Класс, реализующий оба интерфейса
+    public class Screen : ISelectable, IUpdatable
+    {
+        public void OnSelect()
+        {
+            Console.WriteLine("Экран выбран.");
+        }
+
+        public void Refresh()
+        {
+            Console.WriteLine("Экран обновлен.");
+        }
+    }
+
+    // Пример использования
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Screen screen = new Screen();
+            screen.OnSelect();
+            screen.Refresh();
+        }
+    }
+}
