@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    using System;
+    public abstract class Translator
+    {
+        public abstract string Translate(string text);
+        public abstract string GetLanguage();
+        public void Run()
+        {
+            Console.WriteLine(GetLanguage());
+        }
+    }
+    public class EnglishTranslator : Translator
+    {
+        public override string Translate(string text)
+        {
+            return $"Translation: {text}";
+        }
+
+        public override string GetLanguage()
+        {
+            return "Я переводчик с английского";
+        }
+    }
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            EnglishTranslator englishTranslator = new EnglishTranslator();
+            englishTranslator.Run();
+        }
+    }
+
+
+}
